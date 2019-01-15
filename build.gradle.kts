@@ -1,20 +1,29 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.10"
+    base
+    kotlin("jvm") version "1.3.11" apply false
 }
 
-group = "de.mrclrchtr.education"
-version = "1.0-SNAPSHOT"
+allprojects {
 
-repositories {
-    mavenCentral()
+    group = "de.mrclrchtr.education"
+    version = "1.0-SNAPSHOT"
+
+    repositories {
+        jcenter()
+    }
+}
+
+subprojects {
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8"))
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    // Make the root project archives configuration depend on every subproject
+    subprojects.forEach {
+        archives(it)
+    }
 }
