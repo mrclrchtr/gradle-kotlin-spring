@@ -1,3 +1,4 @@
 rootProject.name = 'gradle-kotlin-spring'
 include 'factory'
+include 'consumer'
 
