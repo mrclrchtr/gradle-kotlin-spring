@@ -6,7 +6,6 @@ plugins {
 }
 
 allprojects {
-
     group = "de.mrclrchtr.education"
     version = "1.0-SNAPSHOT"
 
@@ -16,8 +15,11 @@ allprojects {
 }
 
 subprojects {
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+    tasks.withType<KotlinCompile>().configureEach {
+        println("Configuring $name in project ${project.name}...")
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
 }
 
