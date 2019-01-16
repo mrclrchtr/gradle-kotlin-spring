@@ -22,7 +22,7 @@ class DashboardController(@Autowired val dashboardService: DashboardService) {
                 title("Message Dashboard")
             ),
             body(
-                h1("Message Dashboard for User $username"),
+                h1("Message Dashboard for $username"),
                 hr(),
                 each(
                     messages
