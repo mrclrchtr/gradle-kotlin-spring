@@ -4,3 +4,16 @@ This is a multi-project / multi-module skeleton with the following details:
  - Kotlin
  - Spring
  - Spring Dependency-Management 
+ 
+ ## Run it!
+ The factory:
+   
+    gradle :message-factory:bootRun
+ 
+ The Dashboard:
+    
+    gradle :message-dashboard:bootRun
+    
+ And now visit http://localhost:8080/dashboard/Mr.Bean
+ 
+ You can enter every name in place of "Mr.Bean". 
