@@ -20,6 +20,8 @@ allprojects {
 
 subprojects {
 
+    apply(plugin = "org.springframework.boot")
+
     println("Enabling Kotlin plugin in project ${project.name}...")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
