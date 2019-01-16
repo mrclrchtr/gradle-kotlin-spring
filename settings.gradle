@@ -1,4 +1,4 @@
 rootProject.name = 'gradle-kotlin-spring'
-include 'factory'
-include 'consumer'
+include 'message-factory'
+include 'message-dashboard'
 
