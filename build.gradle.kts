@@ -2,10 +2,28 @@ import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    base
-    kotlin("jvm") version "1.3.71" apply false
-    id("org.jetbrains.kotlin.plugin.spring") version "1.4.21" apply false
-    id("org.springframework.boot") version "2.2.6.RELEASE" apply false
+    val kotlinVersion = "1.4.20"
+    val springVersion = "2.2.6.RELEASE"
+    val springDependencyManagementVersion = "1.0.10.RELEASE"
+
+    // IntelliJ
+    idea
+
+    // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
+    kotlin("jvm") version kotlinVersion apply false
+
+    // Classes annotated with @Configuration, @Controller, @RestController, @Service or @Repository are automatically opened
+    // https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
+    kotlin("plugin.spring") version kotlinVersion apply false
+
+    // Allows to package executable jar or war archives, run Spring Boot applications, and use the dependency management
+    // https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/
+    id("org.springframework.boot") version springVersion apply false
+
+    // A Gradle plugin that provides Maven-like dependency management and exclusions
+    // https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
+    id("io.spring.dependency-management") version springDependencyManagementVersion
+
     id("com.github.ben-manes.versions") version "0.28.0" // For dependency version upgrades "gradle dependencyUpdates -Drevision=release"
 }
 
@@ -29,8 +47,8 @@ subprojects {
     tasks.withType<KotlinCompile> {
         println("Configuring KotlinCompile  $name in project ${project.name}...")
         kotlinOptions {
-            languageVersion = "1.3"
-            apiVersion = "1.3"
+            languageVersion = "1.4"
+            apiVersion = "1.4"
             jvmTarget = "11"
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
