@@ -26,7 +26,6 @@ subprojects {
     println("Enabling Kotlin Spring plugin in project ${project.name}...")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
-
     tasks.withType<KotlinCompile> {
         println("Configuring KotlinCompile  $name in project ${project.name}...")
         kotlinOptions {
