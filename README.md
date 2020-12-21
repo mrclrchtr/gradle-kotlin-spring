@@ -1,4 +1,4 @@
-# Gradle, Kotlin, Spring Skeleton [![Build Status](https://travis-ci.com/mrclrchtr/gradle-kotlin-spring.svg?branch=master)](https://travis-ci.com/mrclrchtr/gradle-kotlin-spring)
+# Gradle, Kotlin, Spring Skeleton ![main](https://github.com/mrclrchtr/gradle-kotlin-spring/workflows/CI/badge.svg)
 This is a multi-project / multi-module skeleton with the following details:
 
 - Gradle 6.7.1 (Kotlin DSL)
