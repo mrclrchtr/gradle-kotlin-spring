@@ -14,7 +14,7 @@ dependencies {
 
     implementation("com.j2html", "j2html", "1.4.0")
 
-    implementation("io.github.microutils", "kotlin-logging", "1.7.9")
+    implementation("io.github.microutils", "kotlin-logging", "2.0.4")
 
     testImplementation("org.springframework.boot", "spring-boot-starter-test")
 }
