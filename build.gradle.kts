@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     base
     kotlin("jvm") version "1.3.71" apply false
-    id("org.jetbrains.kotlin.plugin.spring") version "1.3.71" apply false
+    id("org.jetbrains.kotlin.plugin.spring") version "1.4.21" apply false
     id("org.springframework.boot") version "2.2.6.RELEASE" apply false
     id("com.github.ben-manes.versions") version "0.28.0" // For dependency version upgrades "gradle dependencyUpdates -Drevision=release"
 }
