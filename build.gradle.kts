@@ -24,7 +24,7 @@ plugins {
     // https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
     id("io.spring.dependency-management") version springDependencyManagementVersion
 
-    id("com.github.ben-manes.versions") version "0.28.0" // For dependency version upgrades "gradle dependencyUpdates -Drevision=release"
+    id("com.github.ben-manes.versions") version "0.36.0" // For dependency version upgrades "gradle dependencyUpdates -Drevision=release"
 }
 
 allprojects {
