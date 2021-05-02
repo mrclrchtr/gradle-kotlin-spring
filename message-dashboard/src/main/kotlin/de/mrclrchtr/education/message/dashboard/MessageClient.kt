@@ -36,5 +36,4 @@ class MessageClient(
             object : ParameterizedTypeReference<List<Message>>() {})
         return response.body ?: ArrayList()
     }
-
 }

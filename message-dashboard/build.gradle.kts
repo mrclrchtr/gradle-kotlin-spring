@@ -1,20 +1,22 @@
 plugins {
-    kotlin("jvm")
+    id("kotlin-conventions")
+    id("testing-conventions")
+    id("publishing-conventions")
+    id("spring-conventions")
 }
 
+val j2htmlVersion: String by rootProject.extra
+val kotlinLoggingVersion: String by rootProject.extra
+
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("com.j2html:j2html:$j2htmlVersion")
+    implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
 
-    implementation("org.springframework.boot", "spring-boot-starter-web")
-    implementation("org.springframework.boot", "spring-boot-starter-actuator")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    implementation("org.springframework.boot", "spring-boot-devtools")
-
-    implementation("com.j2html", "j2html", "1.4.0")
-
-    implementation("io.github.microutils", "kotlin-logging", "2.0.6")
-
-    testImplementation("org.springframework.boot", "spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
