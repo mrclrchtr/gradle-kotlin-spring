@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController
 class MessageController @Autowired constructor(
     private val messageService: MessageService
 ) {
-
     @GetMapping("/messages/{username}")
     fun getMessagesOfUser(@PathVariable("username") username: String) = messageService.getMessagesOfUser(username)
-
 }

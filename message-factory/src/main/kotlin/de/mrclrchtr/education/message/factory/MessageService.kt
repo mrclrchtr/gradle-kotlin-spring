@@ -14,6 +14,7 @@ class MessageService {
     val loremIpsum = LoremIpsum.getInstance()!!
     val messageRepository = HashMap<String, ArrayList<Message>>()
 
+    @SuppressWarnings("UnusedPrivateMember", "MagicNumber")
     fun getMessagesOfUser(username: String): ArrayList<Message> {
         return messageRepository.getOrElse(username) {
             val messages = ArrayList<Message>()

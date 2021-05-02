@@ -1,11 +1,11 @@
 package de.mrclrchtr.education.message.dashboard
 
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class ConsumerApplication
 
-fun main(args: Array<String>) {
-    SpringApplication.run(ConsumerApplication::class.java, *args)
+fun main(vararg args: String) {
+    runApplication<ConsumerApplication>(*args)
 }
