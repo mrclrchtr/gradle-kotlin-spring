@@ -42,7 +42,7 @@ tasks.compileTestKotlin {
 }
 
 detekt {
-    ignoreFailures = true
+    ignoreFailures = false
     buildUponDefaultConfig = true
     config = files("$rootDir/detekt.yml")
     reports {
