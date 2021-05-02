@@ -2,8 +2,8 @@
 This is a multi-project / multi-module skeleton with the following details:
 
 - Gradle 7.0 (Kotlin DSL)
-- Kotlin 1.4.21
-- Spring 2.4.1
+- Kotlin 1.5.0
+- Spring 2.4.4
 - Spring Dependency-Management 
 
 If there are any questions or suggestions for improvement, issues, discussions and PRs are welcome.
