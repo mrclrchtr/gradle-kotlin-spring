@@ -2,9 +2,9 @@ import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.4.21"
-    val springVersion = "2.4.1"
-    val springDependencyManagementVersion = "1.0.10.RELEASE"
+    val kotlinVersion = "1.5.0"
+    val springVersion = "2.4.4"
+    val springDependencyManagementVersion = "1.0.11.RELEASE"
 
     // IntelliJ
     idea
@@ -32,7 +32,7 @@ allprojects {
     version = "1.1"
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -47,8 +47,8 @@ subprojects {
     tasks.withType<KotlinCompile> {
         println("Configuring KotlinCompile  $name in project ${project.name}...")
         kotlinOptions {
-            languageVersion = "1.4"
-            apiVersion = "1.4"
+            languageVersion = "1.5"
+            apiVersion = "1.5"
             jvmTarget = "11"
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
