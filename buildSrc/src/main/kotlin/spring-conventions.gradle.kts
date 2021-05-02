@@ -18,3 +18,8 @@ apply(plugin = "org.springframework.boot")
 
 println("Enabling Spring Boot Dependency Management in project ${project.name}...")
 apply(plugin = "io.spring.dependency-management")
+
+springBoot {
+    // Creates META-INF/build-info.properties for Spring Boot Actuator
+    buildInfo()
+}
