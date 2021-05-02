@@ -1,6 +1,12 @@
 # Gradle, Kotlin, Spring Skeleton ![main](https://github.com/mrclrchtr/gradle-kotlin-spring/workflows/CI/badge.svg)
 
-This is a multi-project / multi-module skeleton with the following details:
+Do you already know how to set up a Gradle multi-project / multi-module with Kotlin DSL and Spring Dependency
+Management?
+
+I have set up an example here, in which I have abstracted the most important logical components and packed them into
+individual buildSrc modules. This makes the build very modular and also very clear. What do you think?
+
+It has the following details:
 
 - Gradle 7.0 with buildSrc and Kotlin DSL
 - Kotlin 1.4.31
