@@ -37,7 +37,10 @@ fun RepositoryHandler.gitLab(gitLabPrivateToken: String?): MavenArtifactReposito
     }
 }
 
-fun PublicationContainer.xxx(fromComponent: SoftwareComponent? = null, javadocJar: Jar? = null): MavenPublication {
+fun PublicationContainer.fromComponent(
+    fromComponent: SoftwareComponent? = null,
+    javadocJar: Jar? = null
+): MavenPublication {
     return create<MavenPublication>("maven") {
         pom {
             url.set("https://gitlab.com/xxx/yyy/zzz")
