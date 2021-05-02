@@ -5,6 +5,8 @@ This is a multi-project / multi-module skeleton with the following details:
 - Kotlin 1.4.21
 - Spring 2.4.1
 - Spring Dependency-Management 
+
+If there are any questions or suggestions for improvement, issues, discussions and PRs are welcome.
  
  ## Run it!
  The factory:
