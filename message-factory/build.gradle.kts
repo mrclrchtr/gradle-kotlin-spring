@@ -1,18 +1,20 @@
 plugins {
-    kotlin("jvm")
+    id("kotlin-conventions")
+    id("testing-conventions")
+    id("publishing-conventions")
+    id("spring-conventions")
 }
 
-dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+val loremVersion: String by rootProject.extra
 
+dependencies {
     implementation("com.fasterxml.jackson.module", "jackson-module-kotlin")
 
-    implementation("org.springframework.boot", "spring-boot-starter-web")
-    implementation("org.springframework.boot", "spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("com.thedeanda:lorem:$loremVersion")
 
-    implementation("org.springframework.boot", "spring-boot-devtools")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    implementation("com.thedeanda", "lorem", "2.1")
-
-    testImplementation("org.springframework.boot", "spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
