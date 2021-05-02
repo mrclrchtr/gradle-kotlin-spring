@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <module name="de.mrclrchtr.education.gradle-kotlin-spring.message-dashboard.main" />
+    <module name="mrclrchtr.gradle-kotlin-spring.message-dashboard.main" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="de.mrclrchtr.education.message.dashboard.*" />

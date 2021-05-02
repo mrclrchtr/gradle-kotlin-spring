@@ -1,22 +1,28 @@
 # Gradle, Kotlin, Spring Skeleton ![main](https://github.com/mrclrchtr/gradle-kotlin-spring/workflows/CI/badge.svg)
+
 This is a multi-project / multi-module skeleton with the following details:
 
-- Gradle 7.0 (Kotlin DSL)
-- Kotlin 1.5.0
-- Spring 2.4.4
-- Spring Dependency-Management 
+- Gradle 7.0 with buildSrc and Kotlin DSL
+- Kotlin 1.4.31
+- Spring 2.4.5
+- Spring Dependency-Management
+
+Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
+Spring boot on Gitlab. Unfortunately it doesn't work with the spring boot plugin in this example yet. But I think it can
+help others to reach their goals.
 
 If there are any questions or suggestions for improvement, issues, discussions and PRs are welcome.
- 
- ## Run it!
- The factory:
-   
+
+## Run it!
+
+The factory:
+
     gradle :message-factory:bootRun
- 
- The Dashboard:
-    
+
+The Dashboard:
+
     gradle :message-dashboard:bootRun
-    
- And now visit http://localhost:8080/dashboard/Mr.Bean
- 
- You can enter every name in place of "Mr.Bean". 
+
+And now visit <http://localhost:8080/dashboard/Mr.Bean>
+
+You can enter every name in place of "Mr.Bean". 
