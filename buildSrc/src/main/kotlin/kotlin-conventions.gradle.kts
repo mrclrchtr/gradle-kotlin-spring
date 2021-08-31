@@ -59,9 +59,3 @@ tasks.withType<Detekt>().configureEach {
     // Target version of the generated JVM bytecode. It is used for type resolution.
     this.jvmTarget = jvmTargetVersion
 }
-
-repositories {
-    // Fix for https://github.com/detekt/detekt/issues/3712
-    // TODO: https://github.com/mrclrchtr/gradle-kotlin-spring/issues/9 Remove it when the issue was closed
-    maven("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
-}

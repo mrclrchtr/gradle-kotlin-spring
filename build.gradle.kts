@@ -10,7 +10,7 @@ idea {
 
 val jdkVersion by extra("11")
 val jvmTargetVersion by extra("11")
-val detektVersion by extra("1.16.0") // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
+val detektVersion by extra("1.18.1") // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
 
 // Libs
 val j2htmlVersion by extra("1.4.0")
