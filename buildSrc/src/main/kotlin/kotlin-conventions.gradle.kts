@@ -21,7 +21,6 @@ tasks.compileKotlin {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jdkHome = javaToolchains.compilerFor(java.toolchain).get().metadata.installationPath.asFile.absolutePath
         jvmTarget = jvmTargetVersion
         languageVersion = "1.4"
         apiVersion = "1.4"
@@ -34,7 +33,6 @@ tasks.compileTestKotlin {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jdkHome = javaToolchains.compilerFor(java.toolchain).get().metadata.installationPath.asFile.absolutePath
         jvmTarget = jvmTargetVersion
         languageVersion = "1.4"
         apiVersion = "1.4"
