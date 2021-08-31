@@ -12,12 +12,11 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin"))
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30")
     implementation("org.jetbrains.kotlin:kotlin-allopen")
-    implementation("org.springframework.boot:spring-boot-gradle-plugin:2.4.5")
+    implementation("org.springframework.boot:spring-boot-gradle-plugin:2.5.4")
 
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:1.4.30")
 
-    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.16.0")
+    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.18.1")
 }
