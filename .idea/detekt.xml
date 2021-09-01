@@ -4,7 +4,6 @@
     <enableDetekt>true</enableDetekt>
     <enableFormatting>true</enableFormatting>
     <buildUponDefaultConfig>true</buildUponDefaultConfig>
-    <enableAllRules>true</enableAllRules>
     <treatAsError>true</treatAsError>
     <configPaths>$PROJECT_DIR$/detekt.yml</configPaths>
   </component>
