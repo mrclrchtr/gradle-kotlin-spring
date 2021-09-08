@@ -8,7 +8,10 @@ individual buildSrc modules. This makes the build very modular and also very cle
 
 It has the following details:
 
-- Gradle 7.2 with buildSrc and Kotlin DSL
+- Gradle 7.2
+  - buildSrc
+  - Kotlin DSL
+  - Version Catalog (libs.versions.toml)
 - Kotlin 1.5.30
 - Spring 2.5.4
 - Spring Dependency-Management

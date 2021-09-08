@@ -12,7 +12,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("com.thedeanda:lorem:$loremVersion")
+    implementation(libs.bundles.lorem)
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 

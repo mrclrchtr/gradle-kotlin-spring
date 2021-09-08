@@ -13,8 +13,8 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("com.j2html:j2html:$j2htmlVersion")
-    implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+    implementation(libs.bundles.j2html)
+    implementation(libs.bundles.kotlinLogging)
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
