@@ -1,15 +1,15 @@
 @file:Suppress("UnstableApiUsage")
 
+import de.mrclrchtr.education.gradle.constant.JDK_VERSION
+
 plugins {
     `java-library`
 }
 
-val jdkVersion: String by rootProject.extra
-
 java {
     // Auto JDK setup
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(jdkVersion))
+        languageVersion.set(JavaLanguageVersion.of(JDK_VERSION))
     }
     withSourcesJar()
 }

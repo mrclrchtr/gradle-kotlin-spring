@@ -1,5 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
+import de.mrclrchtr.education.gradle.constant.JVM_TARGET_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
@@ -12,16 +13,13 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-val jvmTargetVersion: String by rootProject.extra
-val detektVersion: String by rootProject.extra
-
 tasks.compileKotlin {
     println("Configuring KotlinCompile  $name in project ${project.name}...")
     kotlinOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jvmTarget = jvmTargetVersion
+        jvmTarget = JVM_TARGET_VERSION
         languageVersion = "1.4"
         apiVersion = "1.4"
     }
@@ -33,7 +31,7 @@ tasks.compileTestKotlin {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jvmTarget = jvmTargetVersion
+        jvmTarget = JVM_TARGET_VERSION
         languageVersion = "1.4"
         apiVersion = "1.4"
     }
@@ -52,10 +50,11 @@ detekt {
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
+    // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
 }
 
 tasks.withType<Detekt>().configureEach {
     // Target version of the generated JVM bytecode. It is used for type resolution.
-    this.jvmTarget = jvmTargetVersion
+    this.jvmTarget = JVM_TARGET_VERSION
 }

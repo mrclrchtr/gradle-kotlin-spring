@@ -1,0 +1,14 @@
+[versions]
+kotlin-logging = "2.0.6"
+lorem = "2.1"
+j2html = "1.4.0"
+
+[libraries]
+kotlin-logging = { module = "io.github.microutils:kotlin-logging", version.ref = "kotlin-logging" }
+lorem = { module = "com.thedeanda:lorem", version.ref = "lorem" }
+j2html = { module = "com.j2html:j2html", version.ref = "j2html" }
+
+[bundles]
+kotlinLogging = ["kotlin-logging"]
+lorem = ["lorem"]
+j2html = ["j2html"]
