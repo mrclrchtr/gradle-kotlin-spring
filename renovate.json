@@ -1,6 +1,6 @@
 {
   "extends": [
-    ":prHourlyLimitNone",
-    "config:base"
+    "config:base",
+    ":prHourlyLimitNone"
   ]
 }
