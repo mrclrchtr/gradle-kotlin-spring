@@ -51,7 +51,7 @@ detekt {
 
 dependencies {
     // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.19.0")
 }
 
 tasks.withType<Detekt>().configureEach {
