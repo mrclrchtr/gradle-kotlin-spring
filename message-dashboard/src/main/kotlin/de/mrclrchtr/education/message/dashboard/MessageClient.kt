@@ -32,8 +32,10 @@ class MessageClient(
     fun getMessagesOfUser(username: String): List<Message> {
         // I would like to use this.. but its not possible because it returns List<LinkedHashMap>>
         // return restTemplate.getForObject("/messages/$username") ?: ArrayList()
-        val response = restTemplate.exchange("/messages/$username", HttpMethod.GET, null,
-            object : ParameterizedTypeReference<List<Message>>() {})
+        val response = restTemplate.exchange(
+            "/messages/$username", HttpMethod.GET, null,
+            object : ParameterizedTypeReference<List<Message>>() {}
+        )
         return response.body ?: ArrayList()
     }
 }
