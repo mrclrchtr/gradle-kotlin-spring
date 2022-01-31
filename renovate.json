@@ -2,5 +2,13 @@
   "extends": [
     "config:base",
     ":prHourlyLimitNone"
+  ],
+  "packageRules": [
+    {
+      "managers": [
+        "maven"
+      ],
+      "allowedVersions": "!/-dev$/"
+    }
   ]
 }
