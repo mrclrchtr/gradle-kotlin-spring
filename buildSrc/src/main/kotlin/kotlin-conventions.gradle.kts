@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-import de.mrclrchtr.education.gradle.constant.JVM_TARGET_VERSION
+import de.mrclrchtr.education.gradle.constant.JDK_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
@@ -19,9 +19,9 @@ tasks.compileKotlin {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jvmTarget = JVM_TARGET_VERSION
-        languageVersion = "1.4"
-        apiVersion = "1.4"
+        jvmTarget = JDK_VERSION
+        languageVersion = "1.6"
+        apiVersion = "1.6"
     }
 }
 
@@ -31,9 +31,9 @@ tasks.compileTestKotlin {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
-        jvmTarget = JVM_TARGET_VERSION
-        languageVersion = "1.4"
-        apiVersion = "1.4"
+        jvmTarget = JDK_VERSION
+        languageVersion = "1.6"
+        apiVersion = "1.6"
     }
 }
 
@@ -41,11 +41,6 @@ detekt {
     ignoreFailures = false
     buildUponDefaultConfig = true
     config = files("$rootDir/detekt.yml")
-    reports {
-        xml.enabled = false
-        html.enabled = false
-        txt.enabled = false
-    }
     parallel = true
 }
 
@@ -56,5 +51,5 @@ dependencies {
 
 tasks.withType<Detekt>().configureEach {
     // Target version of the generated JVM bytecode. It is used for type resolution.
-    this.jvmTarget = JVM_TARGET_VERSION
+    this.jvmTarget = JDK_VERSION
 }
