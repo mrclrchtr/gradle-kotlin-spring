@@ -5,13 +5,5 @@
     ":prHourlyLimitNone"
   ],
   "stabilityDays": 14,
-  "packageRules": [
-    {
-      "managers": [
-        "maven",
-        "gradle"
-      ],
-      "allowedVersions": "!/-dev$/"
-    }
-  ]
+  "prCreation": "not-pending"
 }
