@@ -8,7 +8,8 @@
   "packageRules": [
     {
       "managers": [
-        "maven"
+        "maven",
+        "gradle"
       ],
       "allowedVersions": "!/-dev$/"
     }
