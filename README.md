@@ -9,12 +9,12 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 7.3.3
+- Gradle 7.4.2
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
-- Kotlin 1.6.10
-- Spring 2.6.3
+- Kotlin 1.6.21
+- Spring 2.7.0
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
