@@ -5,13 +5,13 @@ import de.mrclrchtr.education.gradle.extension.gitLab
 /*
 *
 * In theory you can use this convention to publish a jar file to a maven repository.
-* In case of Spring boot, this will fail because of the bootJar with the erreo message:
+* In case of Spring boot, this will fail because of the bootJar with the error message:
 *
 * Execution failed for task ':message-dashboard:publishMavenPublicationToMavenLocal'.
 * > Failed to publish publication 'maven' to repository 'mavenLocal'
 *   > Artifact message-dashboard-DEVELOPMENT-SNAPSHOT.jar wasn't produced by this build.
 *
-* To fiz it, you have to configure the plugin as described here:
+* To fix it, you have to configure the plugin as described here:
 *
 * https://docs.spring.io/spring-boot/docs/2.4.4/gradle-plugin/reference/htmlsingle/#publishing-your-application-maven
 *
