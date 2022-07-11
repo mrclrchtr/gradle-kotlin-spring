@@ -15,9 +15,20 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 
+/**
+ * This class provides the endpoints that deliver the dashboard.
+ *
+ * @property dashboardService the dashboard service that delivers the messages for the user.
+ * @constructor Creates the DashboardController.
+ */
 @RestController
 class DashboardController(@Autowired val dashboardService: DashboardService) {
 
+    /**
+     * Creates a dashboard for a specific [username].
+     * @param username the username of the user
+     * @return the html of the dashboard
+     */
     @GetMapping("/dashboard/{username}")
     fun getDashboardOfUser(@PathVariable("username") username: String): String {
         val messages = dashboardService.getMessagesOfUser(username)

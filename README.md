@@ -14,7 +14,8 @@ It has the following details:
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
 - Kotlin 1.6.21
-- Spring 2.7.0
+- Spring 2.7.1
+- Dokka 1.6.21
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
