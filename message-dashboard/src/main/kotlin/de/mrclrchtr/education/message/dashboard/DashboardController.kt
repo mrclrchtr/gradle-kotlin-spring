@@ -1,6 +1,15 @@
 package de.mrclrchtr.education.message.dashboard
 
-import j2html.TagCreator.*
+import j2html.TagCreator.body
+import j2html.TagCreator.div
+import j2html.TagCreator.each
+import j2html.TagCreator.h1
+import j2html.TagCreator.h2
+import j2html.TagCreator.head
+import j2html.TagCreator.hr
+import j2html.TagCreator.html
+import j2html.TagCreator.p
+import j2html.TagCreator.title
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
