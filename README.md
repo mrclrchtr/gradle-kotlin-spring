@@ -9,7 +9,7 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 7.4.2
+- Gradle 7.5
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
