@@ -1,6 +1,5 @@
 plugins {
     idea
-    `maven-publish`
 }
 
 idea {
