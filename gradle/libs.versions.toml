@@ -1,7 +1,7 @@
 [versions]
 kotlin-logging = "2.1.23"
 lorem = "2.1"
-j2html = "1.5.0"
+j2html = "1.6.0"
 
 [libraries]
 kotlin-logging = { module = "io.github.microutils:kotlin-logging", version.ref = "kotlin-logging" }
