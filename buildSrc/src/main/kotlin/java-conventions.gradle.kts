@@ -12,6 +12,7 @@ java {
         languageVersion.set(JavaLanguageVersion.of(JDK_VERSION))
     }
     withSourcesJar()
+    withJavadocJar()
 }
 
 tasks.compileJava {

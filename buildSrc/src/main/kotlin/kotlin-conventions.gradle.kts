@@ -1,7 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
 import de.mrclrchtr.education.gradle.constant.JDK_VERSION
+import de.mrclrchtr.education.gradle.constant.KOTLIN_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 
 plugins {
     id("java-conventions")
@@ -13,27 +15,41 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
+val embeddedMajorAndMinorKotlinVersion = project.getKotlinPluginVersion().substringBeforeLast(".")
+if (KOTLIN_VERSION != embeddedMajorAndMinorKotlinVersion) {
+    logger.warn("Constant 'KOTLIN_VERSION' ($KOTLIN_VERSION) differs from embedded Kotlin version in Gradle (${project.getKotlinPluginVersion()})!\n" +
+            "Constant 'KOTLIN_VERSION' should be ($embeddedMajorAndMinorKotlinVersion).")
+}
+
 tasks.compileKotlin {
-    println("Configuring KotlinCompile  $name in project ${project.name}...")
+    logger.info("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
     kotlinOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
         jvmTarget = JDK_VERSION
-        languageVersion = "1.6"
-        apiVersion = "1.6"
+        languageVersion = KOTLIN_VERSION
+        apiVersion = KOTLIN_VERSION
     }
 }
 
 tasks.compileTestKotlin {
-    println("Configuring KotlinTestCompile  $name in project ${project.name}...")
+    logger.info("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
     kotlinOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
         allWarningsAsErrors = true
         jvmTarget = JDK_VERSION
-        languageVersion = "1.6"
-        apiVersion = "1.6"
+        languageVersion = KOTLIN_VERSION
+        apiVersion = KOTLIN_VERSION
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(
+            JavaLanguageVersion.of(JDK_VERSION)
+        )
     }
 }
 
@@ -45,6 +61,16 @@ detekt {
 }
 
 dependencies {
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    }
+
+    // Align versions of all Kotlin components
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+
+    // Use the Kotlin JDK 8 standard library.
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
     // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.20.0")
 }
