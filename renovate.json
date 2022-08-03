@@ -19,6 +19,12 @@
       "matchPackagePrefixes": [
         "org.jetbrains.dokka:"
       ]
+    },
+    {
+      "groupName": "detekt",
+      "matchPackagePrefixes": [
+        "io.gitlab.arturbosch.detekt:"
+      ]
     }
   ]
 }
