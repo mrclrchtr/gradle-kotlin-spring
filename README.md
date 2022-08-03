@@ -13,6 +13,7 @@ It has the following details:
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
+  - Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
 - Kotlin 1.6.21
 - Spring 2.7.1
 - Dokka 1.6.21
