@@ -17,9 +17,22 @@ jobs:
         with:
           distribution: corretto
           java-version: 17
-
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
-      - name: Execute Gradle build
-        run: ./gradlew build
+      - name: Run build --scan with Gradle wrapper
+        id: gradle
+        env:
+          BUILD_SCAN_TOS_ACCEPTED: true
+        run: ./gradlew build --scan
+      - name: "Add build scan URL as PR comment"
+        uses: actions/github-script@v5
+        if: github.event_name == 'pull_request' && failure()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ ${{ github.workflow }} failed: ${{ steps.gradle.outputs.build-scan-url }}'
+            })
