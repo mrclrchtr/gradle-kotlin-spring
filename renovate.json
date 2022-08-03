@@ -6,5 +6,19 @@
     "group:recommended"
   ],
   "stabilityDays": 14,
-  "prCreation": "not-pending"
+  "prCreation": "not-pending",
+  "packageRules": [
+    {
+      "groupName": "kotlin",
+      "matchPackagePrefixes": [
+        "org.jetbrains.kotlin:"
+      ]
+    },
+    {
+      "groupName": "dokka",
+      "matchPackagePrefixes": [
+        "org.jetbrains.dokka:"
+      ]
+    }
+  ]
 }
