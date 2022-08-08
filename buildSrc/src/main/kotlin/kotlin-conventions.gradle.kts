@@ -22,7 +22,7 @@ if (KOTLIN_VERSION != embeddedMajorAndMinorKotlinVersion) {
 }
 
 tasks.compileKotlin {
-    logger.info("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
+    logger.lifecycle("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
     kotlinOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -34,7 +34,7 @@ tasks.compileKotlin {
 }
 
 tasks.compileTestKotlin {
-    logger.info("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
+    logger.lifecycle("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
     kotlinOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs = listOf("-Xjsr305=strict")
