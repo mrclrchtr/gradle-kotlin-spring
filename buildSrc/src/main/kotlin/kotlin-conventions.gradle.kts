@@ -47,7 +47,7 @@ tasks.compileTestKotlin {
 
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(
+        languageVersion.set(
             JavaLanguageVersion.of(JDK_VERSION)
         )
     }
