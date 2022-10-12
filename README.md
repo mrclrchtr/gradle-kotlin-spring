@@ -16,7 +16,7 @@ It has the following details:
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
 - Kotlin 1.7.20
 - Spring Boot 2.7.4
-- Dokka 1.7.10
+- Dokka 1.7.20
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
