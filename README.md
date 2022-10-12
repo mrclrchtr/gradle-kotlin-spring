@@ -38,3 +38,4 @@ The Dashboard:
 And now visit <http://localhost:8080/dashboard/Mr.Bean>
 
 You can enter every name in place of "Mr.Bean". 
+
