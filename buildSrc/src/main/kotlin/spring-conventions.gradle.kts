@@ -10,13 +10,13 @@ plugins {
     id("org.springframework.boot")
 }
 
-logger.lifecycle("Enabling Kotlin Spring plugin in project ${project.name}...")
+logger.lifecycle("Enabling Kotlin Spring plugin in module ${project.path}")
 apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
-logger.lifecycle("Enabling Spring Boot plugin in project ${project.name}...")
+logger.lifecycle("Enabling Spring Boot plugin in module ${project.path}")
 apply(plugin = "org.springframework.boot")
 
-logger.lifecycle("Enabling Spring Boot Dependency Management in project ${project.name}...")
+logger.lifecycle("Enabling Spring Boot Dependency Management in module ${project.path}")
 apply(plugin = "io.spring.dependency-management")
 
 springBoot {
