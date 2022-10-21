@@ -60,6 +60,8 @@ detekt {
     parallel = true
 }
 
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
 dependencies {
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -71,8 +73,7 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    // unfortunately I have not found a way to reuse the version from the build.gradle.kts in buildSrc
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
+    add("detektPlugins", libs.findLibrary("detekt-formatting").get())
 }
 
 tasks.withType<Detekt>().configureEach {

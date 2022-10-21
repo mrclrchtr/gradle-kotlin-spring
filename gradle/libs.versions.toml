@@ -2,13 +2,32 @@
 kotlin-logging = "3.0.2"
 lorem = "2.1"
 j2html = "1.6.0"
+kotlin = "1.7.20"
+springBoot = "2.7.4"
+dokka = "1.7.20"
+detekt = "1.21.0"
 
 [libraries]
+# project dependencies
 kotlin-logging = { module = "io.github.microutils:kotlin-logging", version.ref = "kotlin-logging" }
 lorem = { module = "com.thedeanda:lorem", version.ref = "lorem" }
 j2html = { module = "com.j2html:j2html", version.ref = "j2html" }
+
+
+# buildSrc dependencies (plugins)
+kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-allopen = { module = "org.jetbrains.kotlin:kotlin-allopen", version.ref = "kotlin" }
+kotlin-noarg = { module = "org.jetbrains.kotlin:kotlin-noarg", version.ref = "kotlin" }
+springBoot-gradle = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
+dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
 
 [bundles]
 kotlinLogging = ["kotlin-logging"]
 lorem = ["lorem"]
 j2html = ["j2html"]
+
+[plugins]
+detekt-gradle = { id = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
