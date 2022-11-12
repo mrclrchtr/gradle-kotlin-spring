@@ -1,5 +1,5 @@
 [versions]
-kotlin-logging = "3.0.2"
+kotlin-logging = "3.0.3"
 lorem = "2.1"
 j2html = "1.6.0"
 kotlin = "1.7.20"
