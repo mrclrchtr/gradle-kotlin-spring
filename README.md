@@ -9,13 +9,13 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 7.5
+- Gradle 7.6
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
-- Kotlin 1.7.20
-- Spring Boot 2.7.4
+- Kotlin 1.7.22
+- Spring Boot 3.0.0
 - Dokka 1.7.20
 - Spring Dependency-Management
 
