@@ -3,7 +3,7 @@ kotlin-logging = "3.0.4"
 lorem = "2.1"
 j2html = "1.6.0"
 kotlin = "1.7.22"
-springBoot = "3.0.0"
+springBoot = "3.0.1"
 dokka = "1.7.20"
 detekt = "1.21.0"
 
