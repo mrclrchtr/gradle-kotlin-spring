@@ -14,8 +14,8 @@ It has the following details:
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
-- Kotlin 1.7.22
-- Spring Boot 3.0.0
+- Kotlin 1.8.0
+- Spring Boot 3.0.2
 - Dokka 1.7.20
 - Spring Dependency-Management
 
