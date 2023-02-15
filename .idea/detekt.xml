@@ -7,7 +7,6 @@
       </set>
     </option>
     <option name="enableFormatting" value="true" />
-    <option name="treatAsErrors" value="true" />
   </component>
   <component name="DetektProjectConfiguration">
     <enableDetekt>true</enableDetekt>
