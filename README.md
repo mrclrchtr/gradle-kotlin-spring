@@ -1,4 +1,5 @@
-# Gradle, Kotlin, Spring Skeleton ![main](https://github.com/mrclrchtr/gradle-kotlin-spring/workflows/CI/badge.svg)
+# Gradle, Kotlin, Spring Skeleton
+[![Run Gradle on PRs](https://github.com/mrclrchtr/gradle-kotlin-spring/actions/workflows/gradle-build-pr.yml/badge.svg)](https://github.com/mrclrchtr/gradle-kotlin-spring/actions/workflows/gradle-build-pr.yml)
 
 Do you already know how to set up a Gradle multi-project / multi-module with Kotlin DSL and Spring Dependency
 Management?
