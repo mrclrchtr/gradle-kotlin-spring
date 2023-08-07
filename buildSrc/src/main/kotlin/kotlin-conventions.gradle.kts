@@ -17,8 +17,11 @@ plugins {
 
 val embeddedMajorAndMinorKotlinVersion = project.getKotlinPluginVersion().substringBeforeLast(".")
 if (KOTLIN_VERSION != embeddedMajorAndMinorKotlinVersion) {
-    logger.warn("Constant 'KOTLIN_VERSION' ($KOTLIN_VERSION) differs from embedded Kotlin version in Gradle (${project.getKotlinPluginVersion()})!\n" +
-            "Constant 'KOTLIN_VERSION' should be ($embeddedMajorAndMinorKotlinVersion).")
+    logger.warn(
+        "Constant 'KOTLIN_VERSION' ($KOTLIN_VERSION) differs from embedded Kotlin version in Gradle" +
+            " (${project.getKotlinPluginVersion()})!" +
+            " Constant 'KOTLIN_VERSION' should be ($embeddedMajorAndMinorKotlinVersion)."
+    )
 }
 
 tasks.compileKotlin {

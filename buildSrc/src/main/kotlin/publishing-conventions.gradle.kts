@@ -4,7 +4,7 @@ import de.mrclrchtr.education.gradle.extension.gitLab
 
 /*
 *
-* In theory you can use this convention to publish a jar file to a maven repository.
+* In theory, you can use this convention to publish a jar file to a maven repository.
 * In case of Spring boot, this will fail because of the bootJar with the error message:
 *
 * Execution failed for task ':message-dashboard:publishMavenPublicationToMavenLocal'.

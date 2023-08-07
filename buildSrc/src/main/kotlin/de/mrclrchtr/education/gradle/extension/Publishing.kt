@@ -14,7 +14,7 @@ import org.gradle.kotlin.dsl.credentials
 import org.gradle.kotlin.dsl.provideDelegate
 import java.net.URI
 
-// Setup your repository and tokens. This example is working for GitLab.
+// Set up your repository and tokens. This example is working for GitLab.
 fun RepositoryHandler.gitLab(gitLabPrivateToken: String?): MavenArtifactRepository {
     return maven {
         url = URI("https://gitlab.com/api/v4/projects/xxxxx/packages/maven")
@@ -24,8 +24,8 @@ fun RepositoryHandler.gitLab(gitLabPrivateToken: String?): MavenArtifactReposito
                 name = "Job-Token"
                 value = System.getenv("CI_JOB_TOKEN")
             } else {
-                if (gitLabPrivateToken.isNullOrEmpty()) {
-                    throw IllegalStateException("Neither CI_JOB_TOKEN nor gitLabPrivateToken are set. At least one variable must be set.")
+                check(gitLabPrivateToken.isNullOrEmpty()) {
+                    "Neither CI_JOB_TOKEN nor gitLabPrivateToken are set. At least one variable must be set."
                 }
                 name = "Private-Token"
                 value = gitLabPrivateToken
@@ -63,6 +63,6 @@ fun getGitLabToken(project: Project): String {
     } else {
         val gitLabPrivateToken: String? by project
         gitLabPrivateToken?.also { return it }
-            ?: throw IllegalStateException("Neither CI_JOB_TOKEN nor gitLabPrivateToken are set. At least one variable must be set.")
+            ?: error("Neither CI_JOB_TOKEN nor gitLabPrivateToken are set. At least one variable must be set.")
     }
 }
