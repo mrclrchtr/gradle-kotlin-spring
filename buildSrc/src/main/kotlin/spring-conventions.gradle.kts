@@ -1,7 +1,8 @@
 plugins {
     id("java-conventions")
 
-    // Classes annotated with @Configuration, @Controller, @RestController, @Service or @Repository are automatically opened
+    // Classes annotated with @Configuration, @Controller, @RestController, @Service or @Repository
+    // are automatically opened
     // https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
     kotlin("plugin.spring")
 
