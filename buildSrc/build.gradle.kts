@@ -1,4 +1,4 @@
-val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 plugins {
     // Support convention plugins written in Kotlin. Convention plugins are build scripts in 'src/main'

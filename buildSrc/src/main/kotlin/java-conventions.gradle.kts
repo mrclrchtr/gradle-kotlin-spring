@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 import de.mrclrchtr.education.gradle.constant.JDK_VERSION
 
 plugins {

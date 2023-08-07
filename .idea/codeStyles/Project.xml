@@ -10,6 +10,9 @@
     </MarkdownNavigatorCodeStyleSettings>
     <codeStyleSettings language="kotlin">
       <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
+      <indentOptions>
+        <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      </indentOptions>
     </codeStyleSettings>
   </code_scheme>
 </component>

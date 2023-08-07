@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 import de.mrclrchtr.education.gradle.constant.JDK_VERSION
 import de.mrclrchtr.education.gradle.constant.KOTLIN_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
