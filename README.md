@@ -10,14 +10,15 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 8.2.1
+- Gradle 8.4
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
-- Kotlin 1.8.10
-- Spring Boot 3.0.3
-- Dokka 1.7.20
+- Kotlin 1.9.20
+- Spring Boot 3.1.5
+- Detekt 1.23.3
+- Dokka 1.9.10
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
