@@ -56,8 +56,16 @@ kotlin {
 
 detekt {
     ignoreFailures = false
+
+    // Applies the config files on top of detekt's default config file. `false` by default.
     buildUponDefaultConfig = true
+
+    // Define the detekt configuration(s) you want to use.
+    // Defaults to the default detekt configuration.
     config.setFrom("$rootDir/detekt.yml")
+
+    // Builds the AST in parallel. Rules are always executed in parallel.
+    // Can lead to speedups in larger projects. `false` by default.
     parallel = true
 }
 
