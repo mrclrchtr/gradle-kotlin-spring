@@ -1,7 +1,8 @@
 import de.mrclrchtr.education.gradle.constant.JDK_VERSION
-import de.mrclrchtr.education.gradle.constant.KOTLIN_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
-import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     id("java-conventions")
@@ -13,43 +14,33 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-val embeddedMajorAndMinorKotlinVersion = project.getKotlinPluginVersion().substringBeforeLast(".")
-if (KOTLIN_VERSION != embeddedMajorAndMinorKotlinVersion) {
-    logger.warn(
-        "Constant 'KOTLIN_VERSION' ($KOTLIN_VERSION) differs from embedded Kotlin version in Gradle" +
-            " (${project.getKotlinPluginVersion()})!" +
-            " Constant 'KOTLIN_VERSION' should be ($embeddedMajorAndMinorKotlinVersion)."
-    )
-}
-
-tasks.compileKotlin {
-    logger.lifecycle("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
-    kotlinOptions {
-        @Suppress("SpellCheckingInspection")
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        allWarningsAsErrors = true
-        jvmTarget = JDK_VERSION
-        languageVersion = KOTLIN_VERSION
-        apiVersion = KOTLIN_VERSION
-    }
-}
-
-tasks.compileTestKotlin {
-    logger.lifecycle("Configuring $name with version ${project.getKotlinPluginVersion()} in project ${project.name}")
-    kotlinOptions {
-        @Suppress("SpellCheckingInspection")
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        allWarningsAsErrors = true
-        jvmTarget = JDK_VERSION
-        languageVersion = KOTLIN_VERSION
-        apiVersion = KOTLIN_VERSION
-    }
-}
+// Needs to exist before first usage of 'libs'
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
     jvmToolchain {
         languageVersion.set(
-            JavaLanguageVersion.of(JDK_VERSION)
+            JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
+        )
+    }
+    compilerOptions {
+        @Suppress("SpellCheckingInspection")
+        freeCompilerArgs.add("-Xjsr305=strict")
+        allWarningsAsErrors = false
+        jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
+        languageVersion.set(
+            KotlinVersion.valueOf(
+                "KOTLIN_${
+                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                }"
+            )
+        )
+        apiVersion.set(
+            KotlinVersion.valueOf(
+                "KOTLIN_${
+                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                }"
+            )
         )
     }
 }
@@ -69,8 +60,6 @@ detekt {
     parallel = true
 }
 
-val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
 dependencies {
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -85,9 +74,22 @@ dependencies {
     add("detektPlugins", libs.findLibrary("detekt-formatting").get())
 }
 
+// Activate Type Resolution
 tasks.withType<Detekt>().configureEach {
-    // Target version of the generated JVM bytecode. It is used for type resolution.
     this.jvmTarget = JDK_VERSION
+    classpath.setFrom(
+        sourceSets.main.get().compileClasspath,
+        sourceSets.test.get().compileClasspath
+    )
+}
+
+// Activate Type Resolution
+tasks.withType<DetektCreateBaselineTask>().configureEach {
+    this.jvmTarget = JDK_VERSION
+    classpath.setFrom(
+        sourceSets.main.get().compileClasspath,
+        sourceSets.test.get().compileClasspath
+    )
 }
 
 afterEvaluate {
