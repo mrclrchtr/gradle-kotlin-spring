@@ -81,3 +81,15 @@ tasks.withType<Detekt>().configureEach {
     // Target version of the generated JVM bytecode. It is used for type resolution.
     this.jvmTarget = JDK_VERSION
 }
+
+afterEvaluate {
+    // Workaround for https://detekt.dev/docs/gettingstarted/gradle/#gradle-runtime-dependencies
+    // and https://github.com/detekt/detekt/issues/6428#issuecomment-1779291878
+    configurations.matching { it.name == "detekt" }.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(libs.findVersion("kotlinForDetekt").get().toString())
+            }
+        }
+    }
+}
