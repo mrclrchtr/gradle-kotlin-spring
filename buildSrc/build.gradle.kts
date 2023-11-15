@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 plugins {
@@ -10,6 +13,34 @@ repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
     mavenCentral()
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(
+            JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
+        )
+    }
+    compilerOptions {
+        @Suppress("SpellCheckingInspection")
+        freeCompilerArgs.add("-Xjsr305=strict")
+        allWarningsAsErrors = false
+        jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
+        languageVersion.set(
+            KotlinVersion.valueOf(
+                "KOTLIN_${
+                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                }"
+            )
+        )
+        apiVersion.set(
+            KotlinVersion.valueOf(
+                "KOTLIN_${
+                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                }"
+            )
+        )
+    }
 }
 
 dependencies {

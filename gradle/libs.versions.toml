@@ -2,6 +2,7 @@
 kotlin-logging = "3.0.5"
 lorem = "2.2"
 j2html = "1.6.0"
+jdk = "17"
 kotlin = "1.9.20"
 kotlinForDetekt = "1.9.10"
 springBoot = "3.1.5"
