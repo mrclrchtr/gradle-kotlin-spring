@@ -16,7 +16,7 @@ class MessageClient(
     @Value("\${mrclrchtr.message.factory.port}") val port: Int,
 ) {
 
-    private final var uriComponentsBuilder = UriComponentsBuilder.newInstance()
+    private final val uriComponentsBuilder = UriComponentsBuilder.newInstance()
 
     private val restTemplate = templateBuilder.rootUri(
         uriComponentsBuilder
