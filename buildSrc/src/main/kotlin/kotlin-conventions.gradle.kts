@@ -57,7 +57,7 @@ kotlin {
 detekt {
     ignoreFailures = false
     buildUponDefaultConfig = true
-    config = files("$rootDir/detekt.yml")
+    config.setFrom("$rootDir/detekt.yml")
     parallel = true
 }
 
