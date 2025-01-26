@@ -6,7 +6,6 @@
     "group:recommended"
   ],
   "stabilityDays": 14,
-  "prCreation": "not-pending",
   "packageRules": [
     {
       "groupName": "kotlin",
