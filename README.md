@@ -8,8 +8,8 @@ I have set up an example here, in which I have abstracted the most important log
 individual buildSrc modules. This makes the build very modular and also very clear. What do you think?
 
 It has the following details:
-
 - Java 17
+# renovate: datasource=gradle-version depName=gradle
 - Gradle 8.4
   - buildSrc
   - Kotlin DSL

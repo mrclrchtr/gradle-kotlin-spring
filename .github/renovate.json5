@@ -6,6 +6,18 @@
     ":automergeMinor",
   ],
   "stabilityDays": 14,
+  customManagers: [
+    {
+      customType: 'regex',
+      "fileMatch": [
+        "\\.md$"
+      ],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)',
+      ],
+      versioningTemplate: '{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}',
+    },
+  ],
   "packageRules": [
     {
       "groupName": "kotlin",
