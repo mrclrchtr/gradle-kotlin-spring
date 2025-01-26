@@ -1,9 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:best-practices",
     ":prHourlyLimitNone",
-    "group:recommended"
   ],
   "stabilityDays": 14,
   "packageRules": [
