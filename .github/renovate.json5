@@ -3,6 +3,7 @@
   "extends": [
     "config:best-practices",
     ":prHourlyLimitNone",
+    ":automergeMinor",
   ],
   "stabilityDays": 14,
   "packageRules": [
