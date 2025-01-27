@@ -13,7 +13,7 @@
         "\\.md$"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\s]+)\\s*- (?<currentValue>[^\\s]+)"
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+)\\s*\\n\\s*- .+?`(?<currentValue>[\\d+.\\d+.\\d+]*)`"
       ],
       "versioningTemplate": "semver"
     }
