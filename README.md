@@ -22,7 +22,7 @@ It has the following details:
 # renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin
 - Detekt `1.23.3`
 # renovate: datasource=maven depName=org.jetbrains.dokka:dokka-gradle-plugin
-- Dokka `1.9.10`
+- Dokka `1.9.20`
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
