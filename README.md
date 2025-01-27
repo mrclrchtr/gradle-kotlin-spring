@@ -35,12 +35,14 @@ If there are any questions or suggestions for improvement, issues, discussions a
 ## Run it!
 
 The factory:
-
-    gradle :message-factory:bootRun
+```shell
+    ./gradlew :message-factory:bootRun
+```
 
 The Dashboard:
-
-    gradle :message-dashboard:bootRun
+```shell
+    ./gradlew :message-dashboard:bootRun
+```
 
 And now visit <http://localhost:8080/dashboard/Mr.Bean>
 
