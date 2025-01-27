@@ -221,3 +221,7 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/gradle,kotlin,intellij,macos,windows,linux
 
 /.idea/aws.xml
+/.idea/vcs.xml
+/.idea/misc.xml
+/.idea/git_toolbox_blame.xml
+/.idea/git_toolbox_prj.xml
