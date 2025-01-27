@@ -7,6 +7,8 @@ idea {
     module.isDownloadSources = true
 }
 
-tasks.wrapper {
-    distributionType = Wrapper.DistributionType.ALL
+tasks {
+    wrapper {
+        distributionType = Wrapper.DistributionType.ALL
+    }
 }

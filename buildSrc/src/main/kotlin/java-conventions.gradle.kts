@@ -1,16 +1,16 @@
-import de.mrclrchtr.education.gradle.constant.JDK_VERSION
-
 plugins {
-    `java-library`
+    java
 }
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 java {
     // Auto JDK setup
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(JDK_VERSION))
+        languageVersion.set(
+            JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
+        )
     }
-    withSourcesJar()
-    withJavadocJar()
 }
 
 tasks.compileJava {
@@ -19,7 +19,7 @@ tasks.compileJava {
     options.compilerArgs.addAll(
         listOf(
             "-Xlint:all", // Enables all recommended warnings.
-            "-Werror" // Terminates compilation when warnings occur.
+            "-Werror", // Terminates compilation when warnings occur.
         )
     )
     options.encoding = "UTF-8"
@@ -30,7 +30,7 @@ tasks.jar {
         attributes(
             mapOf(
                 "Implementation-Title" to project.name,
-                "Implementation-Version" to project.version
+                "Implementation-Version" to project.version,
             )
         )
     }

@@ -1,6 +1,4 @@
-import de.mrclrchtr.education.gradle.constant.JDK_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
-import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
@@ -12,9 +10,10 @@ plugins {
 
     // A tool to detect kotlin problems. It's nice, give it a try!
     id("io.gitlab.arturbosch.detekt")
+    // Disabled because of https://github.com/detekt/detekt/issues/6958
+    //  id("io.github.detekt.gradle.compiler-plugin")
 }
 
-// Needs to exist before first usage of 'libs'
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
@@ -46,18 +45,37 @@ kotlin {
 }
 
 detekt {
-    ignoreFailures = false
-
-    // Applies the config files on top of detekt's default config file. `false` by default.
-    buildUponDefaultConfig = true
+    // Builds the AST in parallel. Rules are always executed in parallel.
+    // It Can lead to speedups in larger projects. It's `false` by default.
+    parallel = true
 
     // Define the detekt configuration(s) you want to use.
     // Defaults to the default detekt configuration.
     config.setFrom("$rootDir/detekt.yml")
 
-    // Builds the AST in parallel. Rules are always executed in parallel.
-    // Can lead to speedups in larger projects. `false` by default.
-    parallel = true
+    // Applies the config files on top of detekt's default config file. `false` by default.
+    buildUponDefaultConfig = true
+
+    // Autocorrects all fixable issues locally.
+    if (System.getenv("CI").isNullOrEmpty()) {
+        autoCorrect = true
+    }
+}
+
+tasks.withType<Detekt>().configureEach {
+    exclude("**/generated/**")
+}
+
+tasks.check {
+    dependsOn(tasks.detektMain)
+}
+
+tasks.check.configure {
+    this.setDependsOn(
+        this.dependsOn.filterNot {
+            it is TaskProvider<*> && it == tasks.detekt
+        }
+    )
 }
 
 dependencies {
@@ -72,34 +90,4 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     add("detektPlugins", libs.findLibrary("detekt-formatting").get())
-}
-
-// Activate Type Resolution
-tasks.withType<Detekt>().configureEach {
-    this.jvmTarget = JDK_VERSION
-    classpath.setFrom(
-        sourceSets.main.get().compileClasspath,
-        sourceSets.test.get().compileClasspath
-    )
-}
-
-// Activate Type Resolution
-tasks.withType<DetektCreateBaselineTask>().configureEach {
-    this.jvmTarget = JDK_VERSION
-    classpath.setFrom(
-        sourceSets.main.get().compileClasspath,
-        sourceSets.test.get().compileClasspath
-    )
-}
-
-afterEvaluate {
-    // Workaround for https://detekt.dev/docs/gettingstarted/gradle/#gradle-runtime-dependencies
-    // and https://github.com/detekt/detekt/issues/6428#issuecomment-1779291878
-    configurations.matching { it.name == "detekt" }.all {
-        resolutionStrategy.eachDependency {
-            if (requested.group == "org.jetbrains.kotlin") {
-                useVersion(libs.findVersion("kotlinForDetekt").get().toString())
-            }
-        }
-    }
 }

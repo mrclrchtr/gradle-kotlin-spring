@@ -1,35 +1,42 @@
 [versions]
-kotlin-logging = "3.0.5"
+# global versions
+jdk = "21"
+
+# dependency versions
+kotlinLogging = "7.0.3"
 lorem = "2.2"
 j2html = "1.6.0"
-jdk = "17"
-kotlin = "2.1.0"
-kotlinForDetekt = "1.9.10"
+
+# plugin versions
 springBoot = "3.4.2"
+springGradleDependencyManagement = "1.1.7"
+kotlin = "2.1.0"
+detekt = "1.23.7"
 dokka = "2.0.0"
-detekt = "1.23.3"
+
+[plugins]
 
 [libraries]
 # project dependencies
-kotlin-logging = { module = "io.github.microutils:kotlin-logging", version.ref = "kotlin-logging" }
+microutils-kotlinLogging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlinLogging" }
 lorem = { module = "com.thedeanda:lorem", version.ref = "lorem" }
 j2html = { module = "com.j2html:j2html", version.ref = "j2html" }
 
+# test dependencies
 
 # buildSrc dependencies (plugins)
-kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlin-allopen = { module = "org.jetbrains.kotlin:kotlin-allopen", version.ref = "kotlin" }
-kotlin-noarg = { module = "org.jetbrains.kotlin:kotlin-noarg", version.ref = "kotlin" }
-springBoot-gradle = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
-dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
-detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-allopenPlugin = { module = "org.jetbrains.kotlin:kotlin-allopen", version.ref = "kotlin" }
+kotlin-noargPlugin = { module = "org.jetbrains.kotlin:kotlin-noarg", version.ref = "kotlin" }
+springBoot-gradlePlugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "springBoot" }
+spring-dependencyManagementPlugin = { module = "io.spring.gradle:dependency-management-plugin", version.ref = "springGradleDependencyManagement" }
+detekt-gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+
+# Detekt plugins
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
-
 [bundles]
-kotlinLogging = ["kotlin-logging"]
+logging = ["microutils-kotlinLogging"]
 lorem = ["lorem"]
 j2html = ["j2html"]
-
-[plugins]
-detekt-gradle = { id = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }

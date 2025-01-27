@@ -1,8 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
 plugins {
     // Support convention plugins written in Kotlin. Convention plugins are build scripts in 'src/main'
     // that automatically become available as plugins in the main build.
@@ -18,25 +16,25 @@ repositories {
 kotlin {
     jvmToolchain {
         languageVersion.set(
-            JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
+            JavaLanguageVersion.of(libs.versions.jdk.get())
         )
     }
     compilerOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs.add("-Xjsr305=strict")
         allWarningsAsErrors = false
-        jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
+        jvmTarget.set(JvmTarget.valueOf("JVM_${libs.versions.jdk.get()}"))
         languageVersion.set(
             KotlinVersion.valueOf(
                 "KOTLIN_${
-                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                    libs.versions.kotlin.get().substringBeforeLast(".").replace(".", "_")
                 }"
             )
         )
         apiVersion.set(
             KotlinVersion.valueOf(
                 "KOTLIN_${
-                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
+                    libs.versions.kotlin.get().substringBeforeLast(".").replace(".", "_")
                 }"
             )
         )
@@ -46,31 +44,33 @@ kotlin {
 dependencies {
     // buildSrc in combination with this plugin ensures that the version set here
     // will be set to the same for all other Kotlin dependencies / plugins in the project.
-    add("implementation", libs.findLibrary("kotlin-gradle").get())
+    implementation(libs.kotlin.gradlePlugin)
 
     // https://kotlinlang.org/docs/all-open-plugin.html
     // contains also https://kotlinlang.org/docs/all-open-plugin.html#spring-support
     // The all-open compiler plugin adapts Kotlin to the requirements of those frameworks and makes classes annotated
     // with a specific annotation and their members open without the explicit open keyword.
-    add("implementation", libs.findLibrary("kotlin-allopen").get())
+    implementation(libs.kotlin.allopenPlugin)
 
     // https://kotlinlang.org/docs/no-arg-plugin.html
     // contains also https://kotlinlang.org/docs/no-arg-plugin.html#jpa-support
     // The no-arg compiler plugin generates an additional zero-argument constructor for classes
     // with a specific annotation.
-    add("implementation", libs.findLibrary("kotlin-noarg").get())
+    implementation(libs.kotlin.noargPlugin)
 
     // https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
     // The Spring Boot Gradle Plugin provides Spring Boot support in Gradle.
     // It allows you to package executable jar or war archives, run Spring Boot applications,
     // and use the dependency management provided by spring-boot-dependencies
-    add("implementation", libs.findLibrary("springBoot-gradle").get())
+    implementation(libs.springBoot.gradlePlugin)
 
     // https://github.com/Kotlin/dokka
     // Dokka is a documentation engine for Kotlin like JavaDoc for Java
-    add("implementation", libs.findLibrary("dokka-gradle").get())
+    implementation(libs.dokka.gradlePlugin)
+
+    implementation(libs.spring.dependencyManagementPlugin)
 
     // https://detekt.dev/docs/gettingstarted/gradle/
     // A static code analyzer for Kotlin
-    add("implementation", libs.findLibrary("detekt-gradle").get())
+    implementation(libs.detekt.gradlePlugin)
 }
