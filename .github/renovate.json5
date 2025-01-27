@@ -1,41 +1,41 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    ":prHourlyLimitNone",
-    ":automergeMinor",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices',
+    ':prHourlyLimitNone',
+    ':automergeMinor',
   ],
-  "stabilityDays": 14,
-  "customManagers": [
+  minimumReleaseAge: '14 days',
+  customManagers: [
     {
-      "customType": "regex",
-      "fileMatch": [
-        "\\.md$"
+      customType: 'regex',
+      fileMatch: [
+        '\\.md$',
       ],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\s]+)\\s*- (?<currentValue>[^\\s]+)"
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\s]+)\\s*- (?<currentValue>[^\\s]+)',
       ],
-      "versioningTemplate": "semver"
-    }
+      versioningTemplate: 'semver',
+    },
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "groupName": "kotlin",
-      "matchPackagePrefixes": [
-        "org.jetbrains.kotlin:"
-      ]
+      groupName: 'kotlin',
+      matchPackageNames: [
+        'org.jetbrains.kotlin:{/,}**',
+      ],
     },
     {
-      "groupName": "dokka",
-      "matchPackagePrefixes": [
-        "org.jetbrains.dokka:"
-      ]
+      groupName: 'dokka',
+      matchPackageNames: [
+        'org.jetbrains.dokka:{/,}**',
+      ],
     },
     {
-      "groupName": "detekt",
-      "matchPackagePrefixes": [
-        "io.gitlab.arturbosch.detekt:"
-      ]
-    }
-  ]
+      groupName: 'detekt',
+      matchPackageNames: [
+        'io.gitlab.arturbosch.detekt:{/,}**',
+      ],
+    },
+  ],
 }
