@@ -15,9 +15,13 @@ It has the following details:
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
+# renovate: datasource=kotlin-version depName=kotlin
 - Kotlin 1.9.20
+# renovate: datasource=github-tags depName=spring-boot
 - Spring Boot 3.1.5
+# renovate: datasource=github-tags depName=detekt
 - Detekt 1.23.3
+# renovate: datasource=github-tags depName=dokka
 - Dokka 1.9.10
 - Spring Dependency-Management
 

@@ -6,17 +6,17 @@
     ":automergeMinor",
   ],
   "stabilityDays": 14,
-  customManagers: [
+  "customManagers": [
     {
-      customType: 'regex',
+      "customType": "regex",
       "fileMatch": [
         "\\.md$"
       ],
-      matchStrings: [
-        '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)',
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\s]+)\\s*- (?<currentValue>[^\\s]+)"
       ],
-      versioningTemplate: '{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}',
-    },
+      "versioningTemplate": "semver"
+    }
   ],
   "packageRules": [
     {
