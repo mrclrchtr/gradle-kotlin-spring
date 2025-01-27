@@ -16,7 +16,7 @@ It has the following details:
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
 <!-- renovate: datasource=maven depName=org.jetbrains.kotlin:kotlin-gradle-plugin -->
-- Kotlin `1.9.20`
+- Kotlin `1.9.25`
 <!-- renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin -->
 - Spring Boot `3.4.1`
 <!-- renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin -->
