@@ -9,20 +9,21 @@ individual buildSrc modules. This makes the build very modular and also very cle
 
 It has the following details:
 - Java `17`
-# renovate: datasource=gradle-version depName=gradle
+<!-- renovate: datasource=gradle-version depName=gradle -->
 - Gradle `8.4`
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
   - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
-# renovate: datasource=kotlin-version depName=org.jetbrains.kotlin:kotlin-gradle-plugin
+<!-- renovate: datasource=maven depName=org.jetbrains.kotlin:kotlin-gradle-plugin -->
 - Kotlin `1.9.20`
-# renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin
+<!-- renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin -->
 - Spring Boot `3.4.1`
-# renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin
+<!-- renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin -->
 - Detekt `1.23.3`
-# renovate: datasource=maven depName=org.jetbrains.dokka:dokka-gradle-plugin
+<!-- renovate: datasource=maven depName=org.jetbrains.dokka:dokka-gradle-plugin -->
 - Dokka `1.9.20`
+<!-- formatting comment -->
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
