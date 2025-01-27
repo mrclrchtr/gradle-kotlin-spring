@@ -25,7 +25,7 @@ kotlin {
     compilerOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs.add("-Xjsr305=strict")
-        allWarningsAsErrors = false
+        allWarningsAsErrors = true
         jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
         languageVersion.set(
             KotlinVersion.valueOf(

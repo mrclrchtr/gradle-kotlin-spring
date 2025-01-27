@@ -23,7 +23,7 @@ plugins {
     `maven-publish`
 }
 
-val javadocJar by tasks.creating(Jar::class) {
+val javadocJar by tasks.registering(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Assembles Kotlin docs with Dokka"
     archiveClassifier.set("javadoc")
@@ -33,7 +33,7 @@ val javadocJar by tasks.creating(Jar::class) {
 
 publishing {
     publications {
-        fromComponent(components["java"], javadocJar)
+        fromComponent(components["java"], javadocJar.get())
     }
 
     repositories {
