@@ -8,7 +8,7 @@ I have set up an example here, in which I have abstracted the most important log
 individual buildSrc modules. This makes the build very modular and also very clear. What do you think?
 
 It has the following details:
-- Java `17`
+- Java `21`
 <!-- renovate: datasource=gradle-version depName=gradle -->
 - Gradle `8.4`
   - buildSrc
@@ -27,7 +27,7 @@ It has the following details:
 - Spring Dependency-Management
 
 Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
-Spring boot on Gitlab. Unfortunately it doesn't work with the spring boot plugin in this example yet. But I think it can
+Spring boot on Gitlab. Unfortunately, it doesn't work with the spring boot plugin in this example yet. But I think it can
 help others to reach their goals.
 
 If there are any questions or suggestions for improvement, issues, discussions and PRs are welcome.
