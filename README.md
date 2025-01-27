@@ -46,4 +46,9 @@ The Dashboard:
 
 And now visit <http://localhost:8080/dashboard/Mr.Bean>
 
-You can enter every name in place of "Mr.Bean". 
+You can enter every name in place of "Mr.Bean".
+
+# GitHub Actions
+
+If you want to use the action, you have to set a GRADLE_ENCRYPTION_KEY as secret in your repository:
+https://docs.gradle.org/8.6/userguide/configuration_cache.html#config_cache:secrets:configuring_encryption_key
