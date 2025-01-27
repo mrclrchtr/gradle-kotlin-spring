@@ -18,7 +18,7 @@ It has the following details:
 # renovate: datasource=kotlin-version depName=org.jetbrains.kotlin:kotlin-gradle-plugin
 - Kotlin `1.9.20`
 # renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin
-- Spring Boot `3.1.5`
+- Spring Boot `3.4.1`
 # renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin
 - Detekt `1.23.3`
 # renovate: datasource=maven depName=org.jetbrains.dokka:dokka-gradle-plugin
