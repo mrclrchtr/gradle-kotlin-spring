@@ -20,7 +20,7 @@ It has the following details:
 <!-- renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin -->
 - Spring Boot `3.4.1`
 <!-- renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin -->
-- Detekt `1.23.3`
+- Detekt `1.23.7`
 <!-- renovate: datasource=maven depName=org.jetbrains.dokka:dokka-gradle-plugin -->
 - Dokka `2.0.0`
 <!-- formatting comment -->
