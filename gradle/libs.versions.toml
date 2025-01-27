@@ -6,7 +6,7 @@ jdk = "17"
 kotlin = "1.9.25"
 kotlinForDetekt = "1.9.10"
 springBoot = "3.4.2"
-dokka = "1.9.20"
+dokka = "2.0.0"
 detekt = "1.23.3"
 
 [libraries]
