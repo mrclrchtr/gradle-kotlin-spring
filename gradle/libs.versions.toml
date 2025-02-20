@@ -3,7 +3,7 @@
 jdk = "21"
 
 # dependency versions
-kotlinLogging = "7.0.3"
+kotlinLogging = "7.0.4"
 lorem = "2.2"
 j2html = "1.6.0"
 
