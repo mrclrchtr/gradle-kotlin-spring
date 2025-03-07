@@ -11,7 +11,7 @@ j2html = "1.6.0"
 springBoot = "3.4.3"
 springGradleDependencyManagement = "1.1.7"
 kotlin = "2.1.10"
-detekt = "1.23.7"
+detekt = "1.23.8"
 dokka = "2.0.0"
 
 [plugins]
