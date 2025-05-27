@@ -10,7 +10,7 @@ j2html = "1.6.0"
 # plugin versions
 springBoot = "3.4.5"
 springGradleDependencyManagement = "1.1.7"
-kotlin = "2.1.20"
+kotlin = "2.1.21"
 detekt = "1.23.8"
 dokka = "2.0.0"
 
