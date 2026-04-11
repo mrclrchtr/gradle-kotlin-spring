@@ -27,8 +27,8 @@ val javadocJar by tasks.registering(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Assembles Kotlin docs with Dokka"
     archiveClassifier.set("javadoc")
-    from(tasks.dokkaJavadoc)
-    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.named("dokkaGeneratePublicationHtml"))
+    dependsOn(tasks.named("dokkaGeneratePublicationHtml"))
 }
 
 publishing {
