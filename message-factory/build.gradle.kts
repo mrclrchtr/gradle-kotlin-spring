@@ -9,7 +9,7 @@ plugins {
 val loremVersion: String by rootProject.extra
 
 dependencies {
-    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
