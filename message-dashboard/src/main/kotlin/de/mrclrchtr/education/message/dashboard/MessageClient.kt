@@ -11,9 +11,9 @@ import org.springframework.web.util.UriComponentsBuilder
 @Component
 class MessageClient(
     templateBuilder: RestTemplateBuilder,
-    @Value("\${mrclrchtr.message.factory.protocol}") val protocol: String,
-    @Value("\${mrclrchtr.message.factory.host}") val host: String,
-    @Value("\${mrclrchtr.message.factory.port}") val port: Int,
+    @param:Value("\${mrclrchtr.message.factory.protocol}") val protocol: String,
+    @param:Value("\${mrclrchtr.message.factory.host}") val host: String,
+    @param:Value("\${mrclrchtr.message.factory.port}") val port: Int,
 ) {
 
     private final val uriComponentsBuilder = UriComponentsBuilder.newInstance()
