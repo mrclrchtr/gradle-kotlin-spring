@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController
  * @constructor Creates the DashboardController.
  */
 @RestController
-class DashboardController(@Autowired val dashboardService: DashboardService) {
+class DashboardController(@param:Autowired val dashboardService: DashboardService) {
 
     /**
      * Creates a dashboard for a specific [username].
