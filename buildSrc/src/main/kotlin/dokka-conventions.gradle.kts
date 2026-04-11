@@ -3,9 +3,5 @@ plugins {
 }
 
 dependencies {
-    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin")
-}
-
-tasks.dokkaJavadoc.configure {
-    outputDirectory.set(layout.buildDirectory.dir("javadoc"))
+    dokkaPlugin("org.jetbrains.dokka:kotlin-as-java-plugin")
 }
