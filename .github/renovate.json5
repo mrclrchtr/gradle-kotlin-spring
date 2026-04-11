@@ -9,8 +9,8 @@
   customManagers: [
     {
       customType: 'regex',
-      fileMatch: [
-        '\\.md$',
+      managerFilePatterns: [
+        '/\\.md$/',
       ],
       matchStrings: [
         '<!-- renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+) -->\\s*\\n\\s*- .+?`(?<currentValue>[\\d+.\\d+.\\d+]*)`',
