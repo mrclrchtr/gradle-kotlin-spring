@@ -15,7 +15,7 @@ It has the following details:
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
 <!-- renovate: datasource=maven depName=org.jetbrains.kotlin:kotlin-gradle-plugin -->
-- Kotlin `2.3.21`
+- Kotlin `2.4.0`
 <!-- renovate: datasource=maven depName=org.springframework.boot:spring-boot-gradle-plugin -->
 - Spring Boot `3.5.14`
 <!-- renovate: datasource=maven depName=io.gitlab.arturbosch.detekt:detekt-gradle-plugin -->
